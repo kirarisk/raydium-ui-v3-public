@@ -1,4 +1,14 @@
-import { Bar } from '@/charting_library/charting_library'
+// COMMENTED OUT: TradingView charting library import
+// import { Bar } from '@/charting_library/charting_library'
+
+// Temporary type definition to replace Bar
+type Bar = {
+  time: number
+  open: number
+  high: number
+  low: number
+  close: number
+}
 import { ResolutionToSeconds, SymbolInfo } from './type'
 import { Connection } from '@solana/web3.js'
 import { Curve, LaunchpadPool, LaunchpadPoolInfo } from '@raydium-io/raydium-sdk-v2'

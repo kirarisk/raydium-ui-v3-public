@@ -1,4 +1,12 @@
-import { LibrarySymbolInfo } from '@/charting_library/charting_library'
+// COMMENTED OUT: TradingView charting library import
+// import { LibrarySymbolInfo } from '@/charting_library/charting_library'
+
+// Temporary type definition to replace LibrarySymbolInfo
+type LibrarySymbolInfo = {
+  name: string
+  ticker: string
+  [key: string]: any
+}
 
 export interface SymbolInfo extends LibrarySymbolInfo {
   poolId: string

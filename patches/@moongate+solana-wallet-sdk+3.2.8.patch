@@ -1,0 +1,94 @@
+diff --git a/node_modules/@moongate/solana-wallet-sdk/src/moongateEmbed.ts b/node_modules/@moongate/solana-wallet-sdk/src/moongateEmbed.ts
+index ef1506f..3aceaae 100644
+--- a/node_modules/@moongate/solana-wallet-sdk/src/moongateEmbed.ts
++++ b/node_modules/@moongate/solana-wallet-sdk/src/moongateEmbed.ts
+@@ -33,7 +33,7 @@ import { appleAuthHelpers } from 'react-apple-signin-auth';
+ 
+ import { SignableMessage, createClient } from "viem";
+ 
+-const iframeUrl = "https://v2.moongate.one";
++const iframeUrl = "http://localhost:4001";
+ 
+ export class MoonGateEmbed {
+   private iframe: HTMLIFrameElement;
+@@ -99,7 +99,7 @@ export class MoonGateEmbed {
+           metadata: {
+             name: "Moongate",
+             description: "Moongate Wallet",
+-            url: "https://moongate.one",
++            url: "http://localhost:4001",
+             icons: [logoDataURI],
+           },
+           qrModalOptions: {
+@@ -552,7 +552,7 @@ export class MoonGateEmbed {
+           metadata: {
+             name: "Moongate",
+             description: "Moongate Wallet",
+-            url: "https://moongate.one",
++            url: "http://localhost:4001",
+             icons: [this.logoDataURI],
+           },
+           qrModalOptions: {
+@@ -624,7 +624,7 @@ export class MoonGateEmbed {
+           metadata: {
+             name: "Moongate",
+             description: "Moongate Wallet",
+-            url: "https://moongate.one",
++            url: "http://localhost:4001",
+             icons: [this.logoDataURI],
+           },
+           qrModalOptions: {
+@@ -687,7 +687,7 @@ export class MoonGateEmbed {
+ 
+   googleSignInPopup() {
+     const clientId = '896710466843-42ss52pj2o1j9b17477nv73smnu096e2.apps.googleusercontent.com';
+-    const redirectUri = "https://web.moongate.one/callback";
++    const redirectUri = "http://localhost:4001/callback";
+     const origin = window.location.href;
+     const state = encodeURIComponent(origin);
+     function generateNonce(length: number) {
+@@ -733,7 +733,7 @@ export class MoonGateEmbed {
+         authOptions: {
+           clientId: 'com.moongate.web',
+           scope: 'email name',
+-          redirectURI: 'https://wallet.moongate.one/api1/verifyapple',
++          redirectURI: 'http://localhost:4001/api1/verifyapple',
+           state: window.location.href,
+           usePopup: false,
+           nonce: nonce,
+@@ -746,7 +746,7 @@ export class MoonGateEmbed {
+ 
+       async function getToken() {
+         try {
+-          const response = await fetch(`https://wallet.moongate.one/api1/getappletoken`, {
++          const response = await fetch(`http://localhost:4001/api1/getappletoken`, {
+             method: 'POST',
+             headers: {
+               'Content-Type': 'application/json',
+@@ -790,7 +790,7 @@ export class MoonGateEmbed {
+   }
+   async connectTwitter(): Promise<void> {
+     const clientId = 'Slo1eVdkSEt0a2dYOE1VU1JCcVk6MTpjaQ';
+-    const redirectUri = "https://v2.moongate.one/callbacktwitter";
++    const redirectUri = "http://localhost:4001/callbacktwitter";
+     const state = encodeURIComponent(window.location.href);
+ 
+     function generateNonce(length: number) {
+@@ -827,7 +827,7 @@ export class MoonGateEmbed {
+     const codeVerifier = generateCodeVerifier(128);
+     const codeChallenge = await generateCodeChallenge(codeVerifier);
+ 
+-    const firstPopup = window.open(`https://v2.moongate.one/twittercodeverifier?codeVerifier=${codeVerifier}`);
++    const firstPopup = window.open(`http://localhost:4001/twittercodeverifier?codeVerifier=${codeVerifier}`);
+     // only continue when firstpopup has closed
+     await new Promise((resolve) => {
+       const interval = setInterval(() => {
+@@ -866,7 +866,7 @@ export class MoonGateEmbed {
+ 
+     async function getToken() {
+       try {
+-        const response = await fetch(`https://wallet.moongate.one/api1/gettwittertoken`, {
++        const response = await fetch(`http://localhost:4001/api1/gettwittertoken`, {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',

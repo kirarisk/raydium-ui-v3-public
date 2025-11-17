@@ -1,7 +1,20 @@
 import { useAppStore, useTokenStore } from '@/store'
 import { subscribeOnStream, unsubscribeFromStream } from './streaming'
 import axios from '@/api/axios'
-import { ResolutionString, Bar, Timezone, SeriesFormat } from '@/charting_library/charting_library'
+// COMMENTED OUT: TradingView charting library import
+// import { ResolutionString, Bar, Timezone, SeriesFormat } from '@/charting_library/charting_library'
+
+// Temporary type definitions to replace charting library types
+type ResolutionString = string
+type Bar = {
+  time: number
+  open: number
+  high: number
+  low: number
+  close: number
+}
+type Timezone = string
+type SeriesFormat = string
 import { ResolutionToSeconds, SymbolInfo } from './type'
 import { encodeStr } from '@/utils/common'
 import { solToWSol, wSolToSolString } from '@/utils/token'

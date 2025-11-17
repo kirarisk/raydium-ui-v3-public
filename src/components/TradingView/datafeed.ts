@@ -1,7 +1,21 @@
 import { useLaunchpadStore } from '@/store'
 import { closeSocket, startSocket, subscribeOnStream, unsubscribeFromStream } from './streaming'
 import axios from '@/api/axios'
-import { ResolutionString, Bar, Timezone, SeriesFormat, VisiblePlotsSet } from '@/charting_library/charting_library'
+// COMMENTED OUT: TradingView charting library import
+// import { ResolutionString, Bar, Timezone, SeriesFormat, VisiblePlotsSet } from '@/charting_library/charting_library'
+
+// Temporary type definitions to replace charting library types
+type ResolutionString = string
+type Bar = {
+  time: number
+  open: number
+  high: number
+  low: number
+  close: number
+}
+type Timezone = string
+type SeriesFormat = string
+type VisiblePlotsSet = string
 import { Connection } from '@solana/web3.js'
 import { ResolutionToSeconds, SymbolInfo } from './type'
 import { NATIVE_MINT } from '@solana/spl-token'

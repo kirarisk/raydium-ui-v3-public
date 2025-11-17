@@ -1,4 +1,8 @@
-import type { ThemeName } from '@/charting_library'
+// COMMENTED OUT: TradingView charting library import
+// import type { ThemeName } from '@/charting_library'
+
+// Temporary type definition to replace ThemeName
+type ThemeName = string
 
 export enum AppColorMode {
   GreenUp = 'GreenUp',

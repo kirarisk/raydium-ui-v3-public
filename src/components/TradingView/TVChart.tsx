@@ -1,13 +1,30 @@
-import {
-  LanguageCode,
-  ResolutionString,
-  EntityId,
-  TradingTerminalWidgetOptions,
-  widget as Widget,
-  ChartPropertiesOverrides,
-  Timezone,
-  Bar
-} from '@/charting_library'
+// COMMENTED OUT: TradingView charting library imports
+// import {
+//   LanguageCode,
+//   ResolutionString,
+//   EntityId,
+//   TradingTerminalWidgetOptions,
+//   widget as Widget,
+//   ChartPropertiesOverrides,
+//   Timezone,
+//   Bar
+// } from '@/charting_library'
+
+// Temporary type definitions to replace the charting library types
+type LanguageCode = string
+type ResolutionString = string
+type EntityId = string
+type TradingTerminalWidgetOptions = any
+type Widget = any
+type ChartPropertiesOverrides = any
+type Timezone = string
+type Bar = {
+  time: number
+  open: number
+  high: number
+  low: number
+  close: number
+}
 import { useEffect, useMemo, useState } from 'react'
 import { Themes, THEME_NAMES, AppTheme, AppColorMode } from './TvTheme'
 import { Box, useColorMode } from '@chakra-ui/react'
@@ -49,6 +66,16 @@ export default function TVChart({
   curveType?: number
   needRefresh?: boolean
 }) {
+  // COMMENTED OUT: TradingView chart functionality disabled
+  console.log('TVChart component disabled - TradingView charting library not available')
+  
+  return (
+    <Box height={height} id={id} display="flex" alignItems="center" justifyContent="center" bg="gray.100" color="gray.600">
+      <div>TradingView Chart Disabled</div>
+    </Box>
+  )
+  
+  /* ORIGINAL IMPLEMENTATION COMMENTED OUT:
   const { colorMode } = useColorMode()
   const connection = useAppStore((s) => s.connection)
   const [reloadChartTag, setReloadChartTag] = useState(0)
@@ -405,4 +432,5 @@ export default function TVChart({
   }, [connection])
 
   return <Box height={height} id={id} />
+  */ // END OF COMMENTED OUT IMPLEMENTATION
 }
