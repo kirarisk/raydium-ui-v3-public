@@ -43,7 +43,7 @@ const App: FC<PropsWithChildren<any>> = ({ children }) => {
 
   const moonGateAdapters = createMoonGateAdapters({
   apiKey: process.env.NEXT_PUBLIC_MOONGATE_API_KEY || 'mg_pk_67e41eae679eb889b4adc3ea0123c43d',
-  position: 'top-left',
+  position: 'top-right',
   })
 
   const _walletConnect = useMemo(() => {
